@@ -5,7 +5,7 @@
 ############################################################
 
 # This is the config file for EssentialsX.
-# This config was generated for version ${full.version}.
+# This config was generated for version 2.18.2.1.
 
 # If you want to use special characters in this document, such as accented letters, you MUST save the file as UTF-8, not ANSI.
 # If you receive an error when Essentials loads, ensure that:
@@ -65,7 +65,7 @@ change-displayname: true
 #add-prefix-in-playerlist: true
 
 # When this option is enabled, player suffixes will be shown in the playerlist.
-# This feature only works for Minecraft version 1.8 and higher. 
+# This feature only works for Minecraft version 1.8 and higher.
 # This value of change-playerlist has to be true
 #add-suffix-in-playerlist: true
 
@@ -88,10 +88,10 @@ force-safe-teleport-location: false
 teleport-passenger-dismount: true
 
 # The delay, in seconds, required between /home, /tp, etc.
-teleport-cooldown: 0
+teleport-cooldown: 120
 
 # The delay, in seconds, before a user actually teleports. If the user moves or gets attacked in this timeframe, the teleport is cancelled.
-teleport-delay: 0
+teleport-delay: 5
 
 # The delay, in seconds, a player can't be attacked by other players after they have been teleported by a command.
 # This will also prevent the player attacking other players.
@@ -417,7 +417,7 @@ debug: false
 #locale: en
 
 # Turn off god mode when people leave the server.
-remove-god-on-disconnect: false
+remove-god-on-disconnect: true
 
 # Auto-AFK
 # After this timeout in seconds, the user will be set as AFK.
@@ -455,7 +455,7 @@ cancel-afk-on-move: true
 # Users with the permission node essentials.sleepingignored will always be ignored.
 sleep-ignores-afk-players: true
 
-# Set the player's list name when they are AFK. This is none by default which specifies that Essentials 
+# Set the player's list name when they are AFK. This is none by default which specifies that Essentials
 # should not interfere with the AFK player's list name.
 # You may use color codes, use {USERNAME} the player's name or {PLAYER} for the player's displayname.
 afk-list-name: "none"
@@ -486,7 +486,7 @@ send-info-after-death: false
 # Should players with permissions be able to join and part silently?
 # You can control this with essentials.silentjoin and essentials.silentquit permissions if it is enabled.
 # In addition, people with essentials.silentjoin.vanish will be vanished on join.
-allow-silent-join-quit: false
+allow-silent-join-quit: true
 
 # You can set custom join and quit messages here. Set this to "none" to use the default Minecraft message,
 # or set this to "" to hide the message entirely.
@@ -569,7 +569,7 @@ last-message-reply-recipient-timeout: 180
 last-message-reply-vanished: false
 
 # Toggles whether or not left clicking mobs with a milk bucket turns them into a baby.
-milk-bucket-easter-egg: true
+milk-bucket-easter-egg: false
 
 # Toggles whether or not the fly status message should be sent to players on join
 send-fly-enable-on-join: true
@@ -616,8 +616,9 @@ delay-motd: 0
 # A list of commands that should have their complementary confirm commands enabled by default.
 # This is empty by default, for the latest list of valid commands see the latest source config.yml.
 default-enabled-confirm-commands:
-#- pay
-#- clearinventory
+- suicide
+- pay
+- clearinventory
 
 # Whether or not to teleport a player back to their previous position after they have been freed from jail.
 teleport-back-when-freed-from-jail: true
@@ -716,7 +717,7 @@ command-costs:
   #kit-tools: 1500
 
 # Set this to a currency symbol you want to use.
-# Remember, if you want to use special characters in this document, 
+# Remember, if you want to use special characters in this document,
 # such as accented letters, you MUST save the file as UTF-8, not ANSI.
 currency-symbol: '$'
 
@@ -796,7 +797,8 @@ chat:
   # For more information of chat formatting, check out the wiki: http://wiki.ess3.net/wiki/Chat_Formatting
   # Note: Using the {PREFIX} and {SUFFIX} placeholders along with {DISPLAYNAME} may cause double prefixes/suffixes to be shown in chat unless add-prefix-suffix is uncommented and set to false.
 
-  format: '<{DISPLAYNAME}> {MESSAGE}'
+  format: '&2[&2{DISPLAYNAME}&2]&r {MESSAGE}'
+  #format: '<{DISPLAYNAME}> {MESSAGE}'
   #format: '&7[{GROUP}]&r {DISPLAYNAME}&7:&r {MESSAGE}'
   #format: '&7{PREFIX}&r {DISPLAYNAME}&r &7{SUFFIX}&r: {MESSAGE}'
 
@@ -806,7 +808,7 @@ chat:
 
   # If you are using group formats make sure to remove the '#' to allow the setting to be read.
   # Note: Group names are case-sensitive so you must match them up with your permission plugin.
-  
+
   # You can use permissions to control whether players can use formatting codes in their chat messages.
   # See https://essentialsx.net/wiki/Color-Permissions.html for more information.
 
@@ -1022,12 +1024,12 @@ newbies:
 
   # When we spawn for the first time, which spawnpoint do we use?
   # Set to "none" if you want to use the spawn point of the world.
-  spawnpoint: newbies
+  spawnpoint: default
 
   # Do we want to give users anything on first join? Set to '' to disable
   # This kit will be given regardless of cost and permissions, and will not trigger the kit delay.
-  #kit: ''
-  kit: tools
+  kit: ''
+  # kit: tools
 
 # What priority should we use for handling respawns?
 # Set this to none, if you want vanilla respawning behaviour.
@@ -1044,16 +1046,16 @@ respawn-listener-priority: high
 spawn-join-listener-priority: high
 
 # When users die, should they respawn at their first home or bed, instead of the spawnpoint?
-respawn-at-home: false
+respawn-at-home: true
 
 # When users die, should EssentialsSpawn respect users' respawn anchors?
-respawn-at-anchor: false
+respawn-at-anchor: true
 
 # Teleport all joining players to the spawnpoint
 spawn-on-join: false
 # The following value of `guests` states that all players in group `guests` will be teleported to spawn when joining.
 #spawn-on-join: guests
-# The following list value states that all players in group `guests` and `admin` are to be teleported to spawn when joining. 
+# The following list value states that all players in group `guests` and `admin` are to be teleported to spawn when joining.
 #spawn-on-join:
 #- guests
 #- admin
